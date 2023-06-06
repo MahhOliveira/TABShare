@@ -1,0 +1,26 @@
+public class Tablatura {
+ 
+ private String conteudo;
+ private String titulo;
+ private String descricao;
+ 
+ public Tablatura(String conteudo, String titulo, String descricao) {
+ this.conteudo = conteudo;
+ this.titulo = titulo;
+ this.descricao = descricao;
+ }
+ 
+ public String getNotas() {
+ StringBuilder resultado = new StringBuilder();
+ TablaturaParser parser = new TablaturaParserImpl();
+ List<Casa> casas = parser.parse(descricao);
+ for (Casa casa : casas) {
+ int numero = casa.getNumero();
+ String corda = casa.getCorda();
+ // ... restante do algoritmo para encontrar a nota...
+ resultado.append(nota);
+ resultado.append(“-”);
+ }
+ return resultado;
+ }
+}
