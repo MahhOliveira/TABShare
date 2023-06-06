@@ -1,0 +1,28 @@
+public class TablaturaDAOTest {
+ 
+ private TablaturaDAO dao;
+ 
+ @Before
+ public void setUp() {
+ Session session = setUpDb();
+ dao = new TablaturaDAOImpl(session);
+ }
+ 
+ private Session setUpDb() {
+ Class.forName(“org.hsqldb.jdbcDriver”);
+ Connection jdbcConnection = DriverManager.getConnection(
+ “ jdbc:hsqldb:mem:testdb “, “sa”, “”);
+ IDatabaseConnection connection = new DatabaseConnection(
+ jdbcConnection);
+ IDataSet dataSet = new FlatXmlDataSet(new File(
+ “dados_tablatura_dao_test.xml”));
+ DatabaseOperation.CLEAN_INSERT.execute(connection, dataSet);
+ // … codigo para obter session do Hibernate….
+ }
+ 
+ @Test
+ public void getObterTablaturasPorTom() {
+ List<Tablatura> tablaturas = dao.obterTablaturasPorTom(“G”);
+ // realizar os devidos asserts baseado no conteúdo do banco de dados
+ }
+}
