@@ -1,0 +1,23 @@
+public class EnvioDeTablaturaSteps {
+ 
+ private PaginaEnvioTablatura paginaEnvio;
+ 
+ @Given(“estou logado no sistema na página de envio de tablaturas”)
+ public void logarNoSistema() {
+ paginaEnvio = paginaLogin.logar(“usuario”, “senha”);
+ }
+ 
+ @When(“envio a seguinte tablatura $tablatura e informo”
+ + “ como titulo $titulo e descricao $descricao”)
+ public void envioDeTablatura(String conteudo, String titulo,
+ String descricao) {
+ 
+ paginaEnvio.enviarTablatura(conteudo, titulo, descricao) ;
+ }
+ 
+ @Then(“o sistema informa que a tablatura foi enviada com sucesso”
+ + “ e as notas que a compõem são: %s”)
+ public void tablaturaEnviadaComSucesso(String notas) {
+ assertEquals(notas, paginaEnvio.getResultado());
+ }
+}
