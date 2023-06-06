@@ -1,0 +1,16 @@
+public class EnvioDeTablaturaStory {
+ 
+ public Configuration configuration() {
+  return new MostUsefulConfiguration().useStoryLoader(
+ new LoadFromClasspath(this.getClass())) 
+ .useStoryReporterBuilder(newStoryReporterBuilder()
+ .withDefaultFormats().withFormats(Format. CONSOLE, Format.TXT));
+  }
+  
+   
+ @Override
+ public List<CandidateSteps> candidateSteps() {       
+ return new InstanceStepsFactory(configuration(), 
+ new EnvioDeTablaturaSteps()).createCandidateSteps();
+     }
+}
