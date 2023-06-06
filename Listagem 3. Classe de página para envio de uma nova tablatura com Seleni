@@ -1,0 +1,16 @@
+public class PaginaEnvioTablatura extends Pagina {
+ 
+ // detalhes da API do Selenium encapsulados na classe pai
+ 
+ public enviarTablatura((String conteudo, String titulo,
+ String descricao) {
+ 
+ selenium.open(“/”);
+ selenium.type(“conteudo”, conteudo);
+ selenium.type(“titulo”, titulo);
+ selenium.type(“descricao”, descricao);
+ selenium.click(“btnEnviar”);
+ selenium.waitForPageToLoad(“30000”);
+ assertTrue(selenium.isTextPresent(“Tablatura enviada com sucesso”));
+ }
+}
