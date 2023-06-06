@@ -1,0 +1,10 @@
+public class Tablatura {
+ // …..
+ private TablaturaParser parser;
+ public Tablatura(String conteudo, String titulo, String descricao,
+ TablaturaParser parser) {
+ //...
+ this.parser = parser;
+ }
+ // restante do código igual sem a instanciação da dependência
+}
