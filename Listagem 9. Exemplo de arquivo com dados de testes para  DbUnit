@@ -1,0 +1,6 @@
+<?xml version=’1.0’ encoding=’UTF-8’?>
+<dataset>
+ <tablatura id=”1”titulo=”Musica X”descrição=”Intro X”conteudo=”7-6-2-7.....”/>
+ <tablatura id=”2”titulo=”Musica Y”descrição=”Intro Y”conteudo=”1-3-2-1.....”/>
+ <tablatura id=”3”titulo=”Musica Z”descrição=”Intro Z”conteudo=”4-2-1-9.....”/>
+</dataset>
