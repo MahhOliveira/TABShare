@@ -1,0 +1,23 @@
+public class TablaturaMockito {
+ 
+ @Mock
+ private TablaturaParser parser;
+ 
+ @Before
+ public void setUp() {
+ // instancia os mocks para os campos anotados com @Mock
+ MockitoAnnotations.initMocks(this);
+ }
+ 
+ @Test
+ public void getNotasOk() {
+ // .. igual ao codigo anterior… //
+ when(parser.parse(conteudo)).thenReturn(Arrays.asList(new Casa(7, “G”),
+ new Casa(6, “G”), new Casa(4, “G”) /*... demais casas do 
+ conteudo... */));
+ Tablatura tablatura = new Tablatura(conteudo, titulo, descricao, parser);
+ assertEquals(“D-C#-B-C#-D-A-D-C#-B-C#-D-F#-D-E-F#-G-F#-G-F#-E-F#-
+ E-D-D-”, tablatura.getNotas());
+ verify(parser).parse(conteudo));
+ }
+}
